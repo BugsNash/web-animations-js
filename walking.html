@@ -8,78 +8,70 @@
                 background: black;
             }
             #head {
-                position: absolute;
                 left: 500px;
                 top: 100px;
                 width: 50px;
                 height: 50px;
-                background: white;
                 border-radius: 25px;
             }
             #torso {
-                position: absolute;
                 left: 523px;
                 top: 150px;
-                width: 4px;
                 height: 140px;
+            }
+            .bodyPart {
                 background: white;
+                position: absolute;
+            }
+            .stick {
+                width: 4px;
+                -webkit-transform-origin: top;
             }
             .arm {
-                position: absolute;
                 left: 523px;
                 top: 175px;
-                width: 4px;
                 height: 63px;
-                background: white;
-                -webkit-transform-origin: top;
             }
             /* forearm is a child of arm, so it's absolute position is relative to the arm */
             .forearm {
-                position: absolute;
-                left: 0px;
                 top: 63px;
-                width: 4px;
                 height: 87px;
-                background: white;
-                -webkit-transform-origin: top;
             }
             .leg {
-                position: absolute;
                 left: 523px;
                 top: 289px;
-                width: 4px;
                 height: 75px;
-                background: white;
-                -webkit-transform-origin: top;
             }
-            /* shin is a child of leg, so it's absolute position is relative to the leg */
             .shin {
-                position: absolute;
-                left: 0px;
                 top: 75px;
-                width: 4px;
                 height: 75px;
-                background: white;
-                -webkit-transform-origin: top;
+            }
+            .foot {
+                top: 75px;
+                height: 25px;
             }
     </style>
     </head>
     <body>
         <!--Bruce's body-->
         <div id="bruce">
-            <div id="head"></div>
-            <div id="torso"></div>
-            <div id="leftArm" class="arm">
-                <div id="leftForearm" class="forearm"></div>
+            <div id="head" class="bodyPart"></div>
+            <div id="torso" class="bodyPart stick"></div>
+            <div id="leftArm" class="arm bodyPart stick">
+                <div id="leftForearm" class="forearm bodyPart stick"></div>
             </div>
-            <div id="rightArm" class="arm">
-                <div id="rightForearm" class="forearm"></div>
+            <div id="rightArm" class="arm bodyPart stick">
+                <div id="rightForearm" class="forearm bodyPart stick"></div>
             </div>
-            <div id="leftLeg" class="leg">
-                <div id="leftShin" class="shin"></div>
+            <div id="leftLeg" class="leg bodyPart stick">
+                <div id="leftShin" class="shin bodyPart stick">
+                    <div id="leftFoot" class="foot bodyPart stick"></div>
+                </div>
             </div>
-            <div id="rightLeg" class="leg">
-                <div id="rightShin" class="shin"></div>
+            <div id="rightLeg" class="leg bodyPart stick">
+                <div id="rightShin" class="shin bodyPart stick">
+                    <div id="rightFoot" class="foot bodyPart stick"></div>
+                </div>
             </div>
         </div>
         
@@ -97,8 +89,10 @@
                 /* Legs */                
                 new Animation(leftLeg,[{transform: 'rotate(35deg)'}, {transform: 'rotate(-30deg)'}], {direction: 'alternate', duration: 1.5, iterations: 2}),
                 new Animation(leftShin,[{transform: 'rotate(0deg)'}, {transform: 'rotate(20deg)'}], {direction: 'alternate', duration: 1.5, iterations: 2}),
+                new Animation(leftFoot,[{transform: 'rotate(-90deg)'}]),
                 new Animation(rightLeg,[{transform: 'rotate(-30deg)'}, {transform: 'rotate(35deg)'}], {direction: 'alternate', duration: 1.5, iterations: 2}),
-                new Animation(rightShin,[{transform: 'rotate(20deg)'}, {transform: 'rotate(0deg)'}], {direction: 'alternate', duration: 1.5, iterations: 2})
+                new Animation(rightShin,[{transform: 'rotate(20deg)'}, {transform: 'rotate(0deg)'}], {direction: 'alternate', duration: 1.5, iterations: 2}),
+                new Animation(rightFoot,[{transform: 'rotate(-90deg)'}])
             ], {iterations: Infinity});
             
             
