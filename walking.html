@@ -7,28 +7,17 @@
             body {
                 background: black;
             }
-            #head {
-                left: 500px;
-                top: 100px;
-                width: 50px;
-                height: 50px;
-                border-radius: 25px;
-            }
-            #torso {
-                left: 523px;
-                top: 150px;
-                height: 140px;
-            }
             .bodyPart {
                 background: white;
                 position: absolute;
+                left: 50%;
             }
             .stick {
+                margin-left: -2px;
                 width: 4px;
                 -webkit-transform-origin: top;
             }
             .arm {
-                left: 523px;
                 top: 175px;
                 height: 70px;
             }
@@ -38,7 +27,6 @@
                 height: 75px;
             }
             .leg {
-                left: 523px;
                 top: 289px;
                 height: 75px;
             }
@@ -50,7 +38,18 @@
                 top: 75px;
                 height: 25px;
             }
-    </style>
+            #head {
+                margin-left: -25px;
+                top: 100px;
+                width: 50px;
+                height: 50px;
+                border-radius: 25px;
+            }
+            #torso {
+                top: 150px;
+                height: 140px;
+            }
+            </style>
     </head>
     <body>
         <!--Bruce's body-->
